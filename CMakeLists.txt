@@ -7,4 +7,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(Geo3D 
     src/main.cpp
     src/core/Vec3.cpp
+    src/core/Mat4.cpp
 )
