@@ -24,5 +24,19 @@ int main() {
     identity = identity * 4;
     identity.print();
 
+    float src[4][4] = {
+        {2, 0, 0, 0},
+        {0, 3, 0, 0},
+        {0, 0, 4, 0},
+        {0, 0, 0, 1}};
+    
+    Mat4 mat(src);
+    Mat4 inv = mat.inverse();
+    Mat4 res = mat*inv;
+
+    std::cout << "Matrix A is: \n" << mat.toString() << std::endl;
+    std::cout << "Inverse of A is: \n" << inv.toString() << std::endl;
+    std::cout << "A*A^-1 is: \n" << res.toString();
+
     return 0;
 }

@@ -15,6 +15,8 @@ public:
         }
     }
 
+    Mat4(float src[4][4]);
+
     Mat4 operator*(const Mat4& other) const;
     Mat4 operator*(const float& scalar) const;
 
@@ -30,11 +32,13 @@ public:
     static Mat4 rotationX(float angle);
     static Mat4 rotationY(float angle);
     static Mat4 rotationZ(float angle);
-
+    
 private:
 
-    Mat4(float src[4][4]);
     float determinant() const;
+    float det2x2(float a, float b, float c, float d) const;
+    float det3x3(float a[3][3]) const;
+    void getSubMatrix(int skipRow, int skipCol, float out[3][3]) const;
 
     float m[4][4];
 };
