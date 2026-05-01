@@ -16,6 +16,8 @@ public:
         }
     }
 
+    float get(int row, int col) const { return m[row][col]; }
+
     Mat4(float src[4][4]);
 
     Mat4 operator*(const Mat4& other) const;
