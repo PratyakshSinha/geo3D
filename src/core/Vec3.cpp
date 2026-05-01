@@ -44,6 +44,14 @@ Vec3 Vec3::operator*(const Vec3 &other) const {
     return Vec3(i, j, k);
 }
 
+Vec3 Vec3::operator*(float scalar) const {
+    float i = x * scalar;
+    float j = y * scalar;
+    float k = z * scalar;
+
+    return Vec3(i, j, k);
+}
+
 Vec3 Vec3::operator/(const Vec3 &other) const {
     if(std::abs(other.x) < 1e-6f ||
        std::abs(other.y) < 1e-6f ||

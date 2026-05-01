@@ -15,6 +15,7 @@ public:
     Vec3 operator+(const Vec3 &other) const;
     Vec3 operator-(const Vec3 &other) const;
     Vec3 operator*(const Vec3 &other) const;
+    Vec3 operator*(float scalar) const;
     Vec3 operator/(const Vec3 &other) const;
     bool operator==(const Vec3 &other) const;
     float dotProduct(const Vec3 &other) const;
@@ -38,3 +39,7 @@ private:
     float y;
     float z;
 };
+
+inline Vec3 operator*(float scalar, const Vec3& v) {
+    return v * scalar;
+}

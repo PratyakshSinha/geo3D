@@ -3,6 +3,7 @@
 #include "core/Mat4.hpp"
 #include <cmath>
 #include <corecrt_math_defines.h>
+#include "core/Ray.hpp"
 
 int main() {
     Vec3 a(1.0f, 2.0f, 3.0f);
@@ -46,6 +47,14 @@ int main() {
     std::cout << "\nOG Points: " << point.toString() << std::endl;
     std::cout << "Rotated Points: " << result.toString();
 
+
+    Vec3 origin(0,0,0);
+    Vec3 direction(1,0,0);
+    Ray r(origin, direction);
+    std::cout << "Ray at origin: " << r.toString();
+    std::cout << "Ray at 0: " << r.at(0).toString();
+    std::cout << "Ray at 1: " << r.at(1).toString();
+    std::cout << "Ray at 2: " << r.at(2).toString();
 
     return 0;
 }
