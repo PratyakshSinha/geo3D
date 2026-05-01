@@ -1,6 +1,8 @@
 #include <iostream>
 #include "core/Vec3.hpp"
 #include "core/Mat4.hpp"
+#include <cmath>
+#include <corecrt_math_defines.h>
 
 int main() {
     Vec3 a(1.0f, 2.0f, 3.0f);
@@ -37,6 +39,13 @@ int main() {
     std::cout << "Matrix A is: \n" << mat.toString() << std::endl;
     std::cout << "Inverse of A is: \n" << inv.toString() << std::endl;
     std::cout << "A*A^-1 is: \n" << res.toString();
+
+    Vec3 point(1.0f, 0.0f, 0.0f);
+    Mat4 rot = Mat4::rotationZ(M_PI/2);
+    Vec3 result = rot * point;
+    std::cout << "\nOG Points: " << point.toString() << std::endl;
+    std::cout << "Rotated Points: " << result.toString();
+
 
     return 0;
 }

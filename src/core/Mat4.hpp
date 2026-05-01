@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "Vec3.hpp"
 
 class Mat4 {
 public:
@@ -19,6 +20,7 @@ public:
 
     Mat4 operator*(const Mat4& other) const;
     Mat4 operator*(const float& scalar) const;
+    Vec3 operator*(const Vec3& v) const;
 
     Mat4 transpose() const;
     Mat4 inverse() const;

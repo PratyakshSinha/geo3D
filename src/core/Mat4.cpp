@@ -47,6 +47,14 @@ Mat4 Mat4::operator*(const float& other) const {
     return Mat4(prod);
 }
 
+Vec3 Mat4::operator*(const Vec3& v) const{
+    float row0Res = m[0][0] * v.getX() + m[0][1] * v.getY() + m[0][2] * v.getZ() + m[0][3];
+    float row1Res = m[1][0] * v.getX() + m[1][1] * v.getY() + m[1][2] * v.getZ() + m[1][3];
+    float row2Res = m[2][0] * v.getX() + m[2][1] * v.getY() + m[2][2] * v.getZ() + m[2][3];
+
+    return Vec3(row0Res, row1Res, row2Res);
+}
+
 std::string Mat4::toString() const {
     std::stringstream ss;
 
@@ -128,4 +136,52 @@ Mat4 Mat4::inverse() const {
     Mat4 inv = tran * (1/det);
 
     return inv;
+}
+
+Mat4 Mat4::translation(float x, float y, float z) {
+    Mat4 transMatrix;
+    transMatrix.m[0][3] = x;
+    transMatrix.m[1][3] = y;
+    transMatrix.m[2][3] = z;
+
+    return transMatrix;
+}
+
+Mat4 Mat4::scale(float x, float y, float z) {
+    Mat4 scaleMatrix;
+    scaleMatrix.m[0][0] = x;
+    scaleMatrix.m[1][1] = y;
+    scaleMatrix.m[2][2] = z;
+
+    return scaleMatrix;
+}
+
+Mat4 Mat4::rotationX(float angle) {
+    Mat4 xRotMatrix;
+    xRotMatrix.m[1][1] = std::cos(angle);
+    xRotMatrix.m[1][2] = -std::sin(angle);
+    xRotMatrix.m[2][1] = std::sin(angle);
+    xRotMatrix.m[2][2] = std::cos(angle);
+
+    return xRotMatrix;
+}
+
+Mat4 Mat4::rotationY(float angle) {
+    Mat4 yRotMatrix;
+    yRotMatrix.m[0][0] = std::cos(angle);
+    yRotMatrix.m[0][2] = std::sin(angle);
+    yRotMatrix.m[2][0] = -std::sin(angle);
+    yRotMatrix.m[2][2] = std::cos(angle);
+
+    return yRotMatrix;
+}
+
+Mat4 Mat4::rotationZ(float angle) {
+    Mat4 zRotMatrix;
+    zRotMatrix.m[0][0] = std::cos(angle);
+    zRotMatrix.m[0][1] = -std::sin(angle);
+    zRotMatrix.m[1][0] = std::sin(angle);
+    zRotMatrix.m[1][1] = std::cos(angle);
+
+    return zRotMatrix;
 }
