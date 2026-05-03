@@ -125,6 +125,6 @@ float Vec3::getZ() const {
 
 std::string Vec3::toString() const {
     std::stringstream ss;
-    ss << "(" << x <<"i, " << y << "j, " << z << "k)" << std::endl;
+    ss << "(" << x <<"i, " << y << "j, " << z << "k)";
     return ss.str();
 }

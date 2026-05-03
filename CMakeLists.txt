@@ -17,15 +17,18 @@ add_executable(Geo3D
     src/core/Vec3.cpp
     src/core/Mat4.cpp
     src/core/Ray.cpp
+    src/core/Plane.cpp
 )
 
 add_executable(Geo3DTests
     tests/Vec3Tests.cpp
     tests/Mat4Tests.cpp
     tests/RayTests.cpp
+    tests/PlaneTests.cpp
     src/core/Vec3.cpp
     src/core/Mat4.cpp
     src/core/Ray.cpp
+    src/core/Plane.cpp
 )
 
 target_link_libraries(Geo3DTests gtest gtest_main)
